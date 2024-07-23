@@ -33,18 +33,16 @@ function start() {
 }
 
 start();
-// console.log(question.innerText);
 let count = 0;
 let points = 0;
 let ques;
 
 button.addEventListener("click", () => {
 
-    button.innerText = "Next"
-    document.getElementById("1").style.backgroundColor = "#8a2be2";
-    document.getElementById("2").style.backgroundColor = "#8a2be2";
-    document.getElementById("3").style.backgroundColor = "#8a2be2";
-    document.getElementById("4").style.backgroundColor = "#8a2be2";
+    button.innerText = "Next";
+    for (let i = 0; i < 4; i++) {
+        document.getElementById(i+1).style.backgroundColor = "#8a2be2";
+    }
 
     let a = Math.random() * (4 - 0) + 0;
     ques = questions[Math.floor(a)];
@@ -60,7 +58,7 @@ button.addEventListener("click", () => {
 let answerBoxx = document.getElementById("answerBox")
 answerBoxx.addEventListener("click", (e) => {
     const correctAns = ques.options[ques.ansIndex];
-    console.log("coloring",correctAns);
+    console.log("coloring", correctAns);
     console.log(e.target.innerText);
     if (e.target.innerText === correctAns) {
         (e.target.style.backgroundColor = "#00FF00")
